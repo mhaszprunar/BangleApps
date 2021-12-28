@@ -88,7 +88,7 @@ function draw() {
     if(bl < i*10) { g.setColor("#a00") }
     g.fillRect(w-5*i, bh, 3,3)  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
   }
-  
+}
 
 // at x,y width:wi thicknes:th
 function drawCalendar(x,y,wi,th,str) {
