@@ -85,7 +85,8 @@ function draw() {
   
   // draw battery circles
   for(let i=1;i<11;i++) {
-    g.fillRect(w-5*i, bh, 3,3)  // Farben setzen --> abhängig vom Theming: welche Fabrne benutzen???
+    if(bl < i*10) { g.setColor("#a00") }
+    g.fillRect(w-5*i, bh, 3,3)  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
   }
   
 
