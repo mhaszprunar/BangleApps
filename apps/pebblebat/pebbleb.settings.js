@@ -1,5 +1,5 @@
 (function(back) {
-    const SETTINGS_FILE = "pebbleDistance.json";
+    const SETTINGS_FILE = "pebbleBattery.json";
 
     // initialize with default settings...
     let s = {'bg': '#0f0', 'color': 'Green', 'avStep': 0.75};
@@ -22,7 +22,7 @@
     var bg_code = ['#0f0','#ff0','#0ff','#f0f','#f00','#00f'];
 
     E.showMenu({
-        '': { 'title': 'Pebble Clock' },
+        '': { 'title': 'Pebble Clock + battery' },
         '< Back': back,
         'Color': {
             value: 0 | color_options.indexOf(s.color),
