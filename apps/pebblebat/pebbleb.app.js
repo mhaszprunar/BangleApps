@@ -22,7 +22,7 @@ const w = g.getWidth();
 const ha = 2*h/5 - 11;
 const h2 = 3*h/5 - 19;
 const h3 = 7*h/8 - 10;
-const bh = h - 10;
+const bh = h - 15;
 
 let batteryWarning = false;
 
@@ -83,9 +83,10 @@ function draw() {
     g.setColor('#000'); // otherwise black regardless of theme
   
   // draw battery circles
-  for(let i=1;i<11;i++) {
-    if(bl < i*10) { g.setColor("#a00"); }
-    g.fillRect(w-5*i, bh, 3,3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
+  for(let i=1;i<20;i++) {
+    let c = (bl < i*10) ? "#a00" : "#eee";
+    g.setColor(c);
+    g.fillRect(w-5*i, bh, w-5*i+3,bh+3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
   }
 }
 
