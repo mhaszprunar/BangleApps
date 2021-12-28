@@ -53,7 +53,6 @@ function draw() {
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
   g.drawString(da[0].toUpperCase(), w/4, ha); // day of week
-  g.drawString(stps, 3*w/4, ha);
 
   // time
   // white on red for battery warning
@@ -85,8 +84,8 @@ function draw() {
   
   // draw battery circles
   for(let i=1;i<11;i++) {
-    if(bl < i*10) { g.setColor("#a00") }
-    g.fillRect(w-5*i, bh, 3,3)  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
+    if(bl < i*10) { g.setColor("#a00"); }
+    g.fillRect(w-5*i, bh, 3,3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
   }
 }
 
