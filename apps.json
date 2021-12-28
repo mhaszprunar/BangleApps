@@ -5026,6 +5026,24 @@
       {"name":"pebbled.img","url":"pebbled.icon.js","evaluate":true}
     ]
   },
+  {
+    "id": "pebbleb",
+    "name": "Pebble Clock with battery",
+    "shortName": "Pebble + battery",
+    "version": "0.1",
+    "description": "Fork of Pebble Clock with battery level indicator (10% steps)).",
+    "readme": "README.md",
+    "icon": "pebbleb.png",
+    "screenshots": [{"url":"pebble_screenshot.png"}],
+    "type": "clock",
+    "tags": "clock,battery",
+    "supports": ["BANGLEJS2"],
+    "storage": [
+      {"name":"pebbleb.app.js","url":"pebbleb.app.js"},
+      {"name":"pebbleb.settings.js","url":"pebbleb.settings.js"},
+      {"name":"pebbleb.img","url":"pebbleb.icon.js","evaluate":true}
+    ]
+  },
   { "id": "circlesclock",
     "name": "Circles clock",
     "shortName":"Circles clock",
