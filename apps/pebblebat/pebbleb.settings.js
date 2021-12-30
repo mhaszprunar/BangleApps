@@ -34,7 +34,7 @@
                 save();
             },
         },
-        "show battery number": {
+        "show number": {
             value: !!settings.showBatteryNumber,
             format: v => v ? "on" : "off",
             onChange: v => {
