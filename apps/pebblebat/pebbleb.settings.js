@@ -36,7 +36,7 @@
             },
         },
         "number": {
-            value: settings.showBatteryNumber,
+            value: !!settings.showBatteryNumber,
             format: v => v ? v : ["off", "on"],
             onChange: v => {
                 s.showBatteryNumber = v;
