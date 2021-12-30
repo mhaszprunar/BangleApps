@@ -1,5 +1,5 @@
 (function(back) {
-    const SETTINGS_FILE = "pebbleBattery.json";
+    const SETTINGS_FILE = "pebbleb.json";
 
     // initialize with default settings...
     let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': "off", "refresh":15};
