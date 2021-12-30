@@ -58,12 +58,12 @@ function draw() {
   
   // time
   // white on red for battery warning
-  g.setColor(!batteryWarning ? g.theme.bg : '#a00');
+  g.setColor(!batteryWarning ? g.theme.bg : '#f00');
   g.fillRect(0, h2, w, h3);
 
   g.setFontLECO1976Regular42();
   g.setFontAlign(0, -1);
-  g.setColor(!batteryWarning ? g.theme.fg : '#eee');
+  g.setColor(!batteryWarning ? g.theme.fg : '#fff');
   g.drawString(timeStr, w/2, h2 + 8);
 
   // contrast bar
@@ -126,7 +126,7 @@ function getSteps() {
   if (WIDGETS.wpedom !== undefined) {
     return WIDGETS.wpedom.getSteps();
   }
-  return '0';
+  return '????';
 }
 
 g.clear();
