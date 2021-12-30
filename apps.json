@@ -5034,7 +5034,7 @@
     "description": "Fork of Pebble Clock with battery level indicator. It shows 10 steps with 2 parts each (5% battery). Optionally it can also show the battery level as number (see settings).",
     "readme": "README.md",
     "icon": "pebblebattery.png",
-    "screenshots": [{"url":"pebblebattery_screenshot.png"}],
+    "screenshots": [{"url":"pebblebattery_screenshot-1.png"},{"url":"pebblebattery_screenshot-2.png"},{"url":"pebblebattery_screenshot-3.png"},{"url":"pebblebattery_screenshot-4.png"}],
     "type": "clock",
     "tags": "clock,battery",
     "supports": ["BANGLEJS2"],
