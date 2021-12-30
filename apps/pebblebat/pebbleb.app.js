@@ -12,7 +12,7 @@ const SETTINGS_FILE = "pebbleBattery.json";
 let settings;
 
 function loadSettings() {
-  settings = require("Storage").readJSON(SETTINGS_FILE,1)|| {'bg': '#0f0', 'color': 'Green'};
+  settings = require("Storage").readJSON(SETTINGS_FILE,1)|| {'bg': '#0f0', 'color': 'Green', "showBatteryNumber":false};
 }
 
 var img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8AAAoeXoAfeDQUBmcyD7A+Dh///8QD649CiAfaHwUvD4sEHy0DDYIfEICg+Cn4fHICY+DD4nxcgojOHwgfEIAYfRCIQaDD4ZAFD5r7DH4//kAfRCIZ/GAAnwD5p9DX44fTHgYSBf4ofVDAQEBl4fFUAgfOXoQzBgIfFBAIfPP4RAEAoYAB+cRiK/SG4h/WIBAfXIA7CBAAswD55AHn6fUIBMCD65AHl4gCmcziAfQQJqfQQJpiDgk0IDXxQLRAEECaBM+QgRYRYgUIA0CD4ggSQJiDCiAKBICszAAswD55AHABKBVD7BAFABIqBD5pAFABPxD55AOD6BADiIAJQAyxLABwf/gaAPAH4A/AH4ARA=="));
@@ -31,6 +31,7 @@ function draw() {
   let da = date.toString().split(" ");
   let timeStr = da[4].substr(0,5);
   const t = 6;
+  const stps = getSteps();
   let bl = E.getBattery();
 
   // turn the warning on once we have dipped below 15%
@@ -53,7 +54,8 @@ function draw() {
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
   g.drawString(da[0].toUpperCase(), w/4, ha); // day of week
-
+  g.drawString(stps, 3*w/4, ha);
+  
   // time
   // white on red for battery warning
   g.setColor(!batteryWarning ? g.theme.bg : '#a00');
@@ -83,11 +85,17 @@ function draw() {
     g.setColor('#000'); // otherwise black regardless of theme
   
   // draw battery circles
-  for(let i=1;i<20;i++) {
-    let c = (bl < i*10) ? "#a00" : "#eee";
+  let gr = 20;
+  let xs = w-((gr+1)*5+2);
+  for(let i=1;i<gr+1;i++) {
+    let c = (bl < i*5) ? "#f00" : "#fff";
     g.setColor(c);
-    g.fillRect(w-5*i, bh, w-5*i+3,bh+3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
+    let x = xs+5*i+(i%2*2);
+    g.fillRect(x, bh, x+3,bh+3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
   }
+
+  if(settings.showBatteryNumber == "on")
+    g.drawString(bl,w-120,bh+3);
 }
 
 // at x,y width:wi thicknes:th

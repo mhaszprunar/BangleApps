@@ -2,7 +2,7 @@
     const SETTINGS_FILE = "pebbleBattery.json";
 
     // initialize with default settings...
-    let s = {'bg': '#0f0', 'color': 'Green', 'avStep': 0.75};
+    let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': false};
 
     // ...and overwrite them with any saved values
     // This way saved values are preserved if a new version adds more settings
@@ -33,6 +33,15 @@
                 s.bg = bg_code[v];
                 save();
             },
+        },
+        "show battery number": {
+            value: "on" | s.showBatteryNumber,
+            format: ["on","off"],
+            onChange: v => {
+                s.showBatteryNumber = v;
+                save();
+            }
+
         }
         
     });
