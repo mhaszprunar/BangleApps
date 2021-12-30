@@ -2,7 +2,7 @@
     const SETTINGS_FILE = "pebbleBattery.json";
 
     // initialize with default settings...
-    let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': false};
+    let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': "off"};
 
     // ...and overwrite them with any saved values
     // This way saved values are preserved if a new version adds more settings
