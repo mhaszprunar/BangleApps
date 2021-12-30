@@ -2,7 +2,7 @@
     const SETTINGS_FILE = "pebbleBattery.json";
 
     // initialize with default settings...
-    let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': "off"};
+    let s = {'bg': '#0f0', 'color': 'Green', 'showBatteryNumber': "off", "refresh":15};
 
     // ...and overwrite them with any saved values
     // This way saved values are preserved if a new version adds more settings
@@ -22,7 +22,7 @@
     var bg_code = ['#0f0','#ff0','#0ff','#f0f','#f00','#00f'];
 
     E.showMenu({
-        '': { 'title': 'Pebble Clock + battery' },
+        '': { 'title': 'Pebble + battery' },
         '< Back': back,
         'Color': {
             value: 0 | color_options.indexOf(s.color),
@@ -34,7 +34,7 @@
                 save();
             },
         },
-        "show number": {
+        "number": {
             value: !!settings.showBatteryNumber,
             format: v => v ? "on" : "off",
             onChange: v => {
@@ -42,7 +42,16 @@
                 save();
             }
 
-        }
+        },
+        "refresh sec": {
+            value: !!settings.refresh,
+            format: v => v ? 15 : 30,
+            onChange: v => {
+                s.refresh = v;
+                save();
+            }
+
+        },
         
     });
 });

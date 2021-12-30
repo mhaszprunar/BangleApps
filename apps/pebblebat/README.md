@@ -18,5 +18,7 @@ I always wanted to check on the battery level (bit paranoid I guess) but I want 
 I opted for a series of rectangles each representing 10% of battery capacity and color coding instead of the standard battery icon style. Each of the 10 blocks contains two sections, so 5% battery capacity can be visualized.
 In the settings you can optionally activate to also show the battery level as number.
 
+Also allows to change refresh rate of screen from every 15s to every 30s to conserve battery.
+
 ## Plans
 none at the moment
