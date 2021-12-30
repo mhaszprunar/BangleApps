@@ -5031,7 +5031,7 @@
     "name": "Pebble Clock with battery",
     "shortName": "Pebble + battery",
     "version": "0.1",
-    "description": "Fork of Pebble Clock with battery level indicator (10% steps)).",
+    "description": "Fork of Pebble Clock with battery level indicator. It shows 10 steps with 2 parts each (5% battery). Optionally it can also show the battery level as number (see settings).",
     "readme": "README.md",
     "icon": "pebbleb.png",
     "screenshots": [{"url":"pebble_screenshot.png"}],

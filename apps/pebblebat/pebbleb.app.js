@@ -12,7 +12,7 @@ const SETTINGS_FILE = "pebbleBattery.json";
 let settings;
 
 function loadSettings() {
-  settings = require("Storage").readJSON(SETTINGS_FILE,1)|| {'bg': '#0f0', 'color': 'Green', "showBatteryNumber":false};
+  settings = require("Storage").readJSON(SETTINGS_FILE,1)|| {'bg': '#0f0', 'color': 'Green', "showBatteryNumber":"on"};
 }
 
 var img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8AAAoeXoAfeDQUBmcyD7A+Dh///8QD649CiAfaHwUvD4sEHy0DDYIfEICg+Cn4fHICY+DD4nxcgojOHwgfEIAYfRCIQaDD4ZAFD5r7DH4//kAfRCIZ/GAAnwD5p9DX44fTHgYSBf4ofVDAQEBl4fFUAgfOXoQzBgIfFBAIfPP4RAEAoYAB+cRiK/SG4h/WIBAfXIA7CBAAswD55AHn6fUIBMCD65AHl4gCmcziAfQQJqfQQJpiDgk0IDXxQLRAEECaBM+QgRYRYgUIA0CD4ggSQJiDCiAKBICszAAswD55AHABKBVD7BAFABIqBD5pAFABPxD55AOD6BADiIAJQAyxLABwf/gaAPAH4A/AH4ARA=="));
@@ -22,7 +22,7 @@ const w = g.getWidth();
 const ha = 2*h/5 - 11;
 const h2 = 3*h/5 - 19;
 const h3 = 7*h/8 - 10;
-const bh = h - 15;
+const bh = h - 14;
 
 let batteryWarning = false;
 
@@ -77,25 +77,30 @@ function draw() {
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 64)/2, -2, { scale: 1 });
   drawCalendar(((w/2) - 42)/2, 11, 42, 4, da[2]);
-  
+
   // battery 
-  if (settings.color == 'Blue' || settings.color == 'Red')
-    g.setColor('#fff'); // white on blue or red best contrast
-  else
-    g.setColor('#000'); // otherwise black regardless of theme
-  
-  // draw battery circles
-  let gr = 20;
-  let xs = w-((gr+1)*5+2);
-  for(let i=1;i<gr+1;i++) {
-    let c = (bl < i*5) ? "#f00" : "#fff";
-    g.setColor(c);
-    let x = xs+5*i+(i%2*2);
-    g.fillRect(x, bh, x+3,bh+3);  // Farben setzen --> abhängig vom Theming: welche Farben benutzen???
+  let cl = "#fff"; // color loaded
+  let ce = "#000"; // color empty
+  if (settings.color == 'Cyan' || settings.color == 'Orange' || settings.color == "Green") {
+    cl = "#000";
+    ce = "#f00";
   }
 
-  if(settings.showBatteryNumber == "on")
-    g.drawString(bl,w-120,bh+3);
+
+  // draw battery circles
+  let gr = 20 + 1; // 20 steps +1 for the loop
+  let xs = w-(gr*5+2);
+  for(let i=1;i<gr;i++) {
+    let c = (bl < i*5) ? ce : cl;
+    g.setColor(c);
+    let x = xs+5*i+(i%2*2);
+    g.fillRect(x, bh, x+3,bh+3);
+  }
+
+  if(settings.showBatteryNumber == "on") {
+    g.setColor(cl);
+    g.drawString(bl,w-120,bh+4);
+  }
 }
 
 // at x,y width:wi thicknes:th
@@ -133,6 +138,6 @@ Bangle.loadWidgets();
  */
 for (let wd of WIDGETS) {wd.draw=()=>{};wd.area="";}
 loadSettings();
-setInterval(draw, 15000); // refresh every 15s
+setInterval(draw, 30000); // refresh every 30s
 draw();
 Bangle.setUI("clock");
