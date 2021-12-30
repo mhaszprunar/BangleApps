@@ -5042,7 +5042,8 @@
       {"name":"pebbleb.app.js","url":"pebbleb.app.js"},
       {"name":"pebbleb.settings.js","url":"pebbleb.settings.js"},
       {"name":"pebbleb.img","url":"pebbleb.icon.js","evaluate":true}
-    ]
+    ],
+    "data": [{"name":"pebbleb.json"}]
   },
   { "id": "circlesclock",
     "name": "Circles clock",
