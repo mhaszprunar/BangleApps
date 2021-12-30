@@ -5027,23 +5027,23 @@
     ]
   },
   {
-    "id": "pebblebat",
+    "id": "pebblebattery",
     "name": "Pebble Clock with battery",
     "shortName": "Pebble + battery",
     "version": "0.2",
     "description": "Fork of Pebble Clock with battery level indicator. It shows 10 steps with 2 parts each (5% battery). Optionally it can also show the battery level as number (see settings).",
     "readme": "README.md",
-    "icon": "pebblebat.png",
-    "screenshots": [{"url":"pebble_screenshot.png"}],
+    "icon": "pebblebattery.png",
+    "screenshots": [{"url":"pebblebattery_screenshot.png"}],
     "type": "clock",
     "tags": "clock,battery",
     "supports": ["BANGLEJS2"],
     "storage": [
-      {"name":"pebbleb.app.js","url":"pebbleb.app.js"},
-      {"name":"pebbleb.settings.js","url":"pebbleb.settings.js"},
-      {"name":"pebbleb.img","url":"pebbleb.icon.js","evaluate":true}
+      {"name":"pebblebattery.app.js","url":"pebblebattery.app.js"},
+      {"name":"pebblebattery.settings.js","url":"pebblebattery.settings.js"},
+      {"name":"pebblebattery.img","url":"pebblebattery.icon.js","evaluate":true}
     ],
-    "data": [{"name":"pebbleb.json"}]
+    "data": [{"name":"pebblebattery.json"}]
   },
   { "id": "circlesclock",
     "name": "Circles clock",

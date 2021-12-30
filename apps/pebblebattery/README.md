@@ -4,7 +4,7 @@
 - Added battery indicator
 - Battery warning changed to 15% instead of 30%
 
-![](pebble_screenshot.png)
+![](pebblebattery_screenshot.png)
 ![](photo.jpg)
 
 Pebble initially written by: [Hugh Barney](https://github.com/hughbarney)
