@@ -16,6 +16,7 @@
     function save() {
         settings = s;
         storage.write(SETTINGS_FILE, settings);
+        if (WIDGETS["myapp"]) WIDGETS["myapp"].reload()
     }
 
     var color_options = ['Green','Orange','Cyan','Purple','Red','Blue'];
